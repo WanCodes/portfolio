@@ -1,0 +1,12 @@
+import { projects } from "@/content/projects";
+import { site } from "@/content/site";
+import type { MetadataRoute } from "next";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const projectUrls = projects.map((project) => ({
+    url: `${site.url}/projects/${project.slug}`,
+    lastModified: new Date(),
+  }));
+
+  return [{ url: site.url, lastModified: new Date() }, ...projectUrls];
+}
