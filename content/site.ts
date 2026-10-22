@@ -1,22 +1,25 @@
 import type { NavItem, SocialLink } from "@/lib/types";
 
 export const site = {
-  name: "Jordan Hale",
-  shortName: "JH",
+  name: "Wan Yau",
+  shortName: "Wan",
   title: "Senior Full Stack Developer",
   location: "London, UK",
-  email: "jordan.hale@example.com",
+  // GitHub (WanCodes) publishes no email. Leave this empty until Wan confirms an address.
+  email: "",
   availability: {
     status: "open" as const,
     label: "Open to opportunities",
-    detail: "Currently exploring senior front-end / full-stack roles",
+    detail: "Open to senior React, React Native, and TypeScript roles",
   },
-  headline: "I build interfaces that feel fast, clear, and intentional.",
+  headline: "I build interfaces in React, React Native, and TypeScript.",
   subheadline:
-    "Senior full-stack developer with a front-end center of gravity — React, Next.js, and TypeScript, backed by solid API, data, and delivery skills.",
-  url: "https://jordanhale.dev",
+    "Senior full-stack developer in London with a strong front-end focus — product UI in React and React Native, and the API when a feature needs it.",
+  // No deployed portfolio domain yet. Set this to the production origin before launch
+  // so Open Graph, sitemap, and robots point at the live site.
+  url: "https://github.com/WanCodes",
   description:
-    "Portfolio of Jordan Hale, a Senior Full Stack Developer focused on React, Next.js, TypeScript, performance, and accessibility.",
+    "Portfolio of Wan Yau, a London-based Senior Full Stack Developer focused on React, React Native, and TypeScript. GitHub: WanCodes.",
 };
 
 export const navItems: NavItem[] = [
@@ -27,34 +30,36 @@ export const navItems: NavItem[] = [
   { label: "Contact", href: "/#contact" },
 ];
 
-export const socials: SocialLink[] = [
-  { label: "GitHub", href: "https://github.com/jordanhale" },
-  { label: "LinkedIn", href: "https://linkedin.com/in/jordanhale" },
-  { label: "X", href: "https://x.com/jordanhale" },
-  { label: "Email", href: `mailto:${site.email}` },
+const profileLinks: SocialLink[] = [
+  { label: "GitHub", href: "https://github.com/WanCodes" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/wan-yau-83550538" },
 ];
+
+export const socials: SocialLink[] = site.email
+  ? [...profileLinks, { label: "Email", href: `mailto:${site.email}` }]
+  : profileLinks;
 
 export const about = {
   story: [
-    "I started as a designer who wanted more control over the pixels. That curiosity turned into a decade of shipping product UI — then the APIs, data models, and pipelines those interfaces depend on.",
-    "Today I lead front-end architecture on product teams: design systems, performance budgets, and accessibility as defaults, not afterthoughts. I still enjoy dropping into the stack when a feature needs a well-shaped API or a cleaner data path.",
+    "I’m a London-based senior developer. Most of the work is the interface: React and TypeScript on the web, React Native and Expo on mobile, and a typed path to the API when the feature needs one. GitHub is WanCodes. The public bio is the short version — professional front-end React and React Native.",
+    "What you can open today: Smart Adventurer, an educational TypeScript game; an Expo arcade; a React Native Tetris; and the interactive history timeline and office map built for IG Group’s public site. I studied at Sheffield Hallam University (2003–2007).",
   ],
   values: [
     {
-      title: "Clean architecture",
-      body: "Boundaries that stay boring: typed contracts, small surfaces, and code that a teammate can change without a treasure map.",
+      title: "Typed UI",
+      body: "React and TypeScript by default. Components stay small, state stays predictable, and the contract with the API is something a teammate can read.",
     },
     {
-      title: "Performance",
-      body: "Perceived speed is part of the product. I treat Core Web Vitals, bundle size, and rendering cost as product requirements.",
+      title: "Web and mobile",
+      body: "The same care on React Native and Expo as on the web: navigation, touch, and a structure that can grow past a single screen.",
     },
     {
-      title: "Accessibility",
-      body: "Keyboard paths, contrast, semantics, and honest focus. If it only works with a mouse, it is not finished.",
+      title: "Interfaces that keep up",
+      body: "A timeline you can drag, a map that scales, a game loop that stays responsive. Perceived speed is part of the product.",
     },
     {
-      title: "Great UX",
-      body: "Copy, empty states, and error recovery matter as much as the happy path. I partner closely with design rather than throwing pixels over the wall.",
+      title: "Clear collaboration",
+      body: "I partner with product and design, say the trade-off in plain language, and keep critical paths covered with tests.",
     },
   ],
 };

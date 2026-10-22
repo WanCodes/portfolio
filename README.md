@@ -1,14 +1,29 @@
-# Jordan Hale — Portfolio
+# Wan Yau — Portfolio
 
-Personal site for a Senior Full Stack Developer with a front-end focus. Built with Next.js 15 (App Router), TypeScript, Tailwind CSS v4, Framer Motion, and `next-themes`.
+Portfolio for **Wan Yau** (GitHub: [WanCodes](https://github.com/WanCodes)), a London-based senior full-stack developer with a strong front-end focus.
 
-Placeholder identity and copy live in `content/` so you can replace them without hunting through components.
+Public bio: professional front-end React and React Native developer. This site positions that work for recruiters hiring senior **React**, **React Native**, and **TypeScript**: product UI first, with Node and PostgreSQL when a feature needs the API.
 
-## Architecture
+## Featured work
 
-See [PLAN.md](./PLAN.md) for folder structure, data shapes, and design decisions.
+Public repositories:
 
-## Setup
+| Project | What it shows |
+| --- | --- |
+| [SmartAdventurer](https://github.com/WanCodes/SmartAdventurer) | Educational TypeScript game (Phaser, Vite). Maths questions open the road. |
+| [my-expo-games](https://github.com/WanCodes/my-expo-games) | Expo / React Native arcade with a typed game registry and Tic-Tac-Toe. |
+| [TetrisPlanABC](https://github.com/WanCodes/TetrisPlanABC) | React Native Tetris for iOS and Android. |
+| [Interactive-Timeline](https://github.com/WanCodes/Interactive-Timeline) | IG Group history timeline. The original page now redirects; the repo is the source. |
+| [Interactive-Map](https://github.com/WanCodes/Interactive-Map) | IG Group careers office map. Same caveat: the live URL has moved. |
+| [multiplefileuploader](https://github.com/WanCodes/multiplefileuploader) | Small Express + PostgreSQL upload sample. |
+
+Experience on the site follows the public [LinkedIn profile](https://www.linkedin.com/in/wan-yau-83550538) (Indeed, Indeed Flex, Samsung Electronics, IG Group). Earlier roles stay on LinkedIn. Bullets describe work that is public.
+
+## Stack
+
+Next.js 15 (App Router), TypeScript, Tailwind CSS v4, Framer Motion, and `next-themes`. Content is typed modules in `content/`. Architecture notes are in [PLAN.md](./PLAN.md).
+
+## Run
 
 ```bash
 npm install
@@ -22,29 +37,32 @@ npm run build
 npm start
 ```
 
-Deploy on Vercel: import the repo, leave defaults. No env vars required for the current contact stub.
+Deploy on Vercel by importing the repo. No environment variables are required for the contact stub.
 
-## Customize content
+## Before production
+
+- Set `site.url` in `content/site.ts` to the deployed origin. It currently points at `https://github.com/WanCodes` because there is no public portfolio domain yet. Open Graph, the sitemap, and robots all use that value.
+- `site.email` is intentionally empty. The GitHub profile does not publish an email, and none has been verified for this site. When Wan confirms an address, set `site.email` — the Email social link is added automatically.
+
+## Edit content
 
 | File | What to edit |
 | --- | --- |
 | `content/site.ts` | Name, title, headline, location, email, social URLs, about copy, SEO |
-| `content/experience.ts` | Roles and impact bullets |
-| `content/projects.ts` | Featured work, stack, challenges, live/GitHub links |
+| `content/experience.ts` | Roles and highlights |
+| `content/projects.ts` | Work, stack, challenges, GitHub links |
 | `content/skills.ts` | Skill groups |
-
-Update `site.url` before production so Open Graph, sitemap, and robots point at your domain.
 
 ## Contact form
 
-`POST /api/contact` validates JSON (`name`, `email`, `message`) and logs it in development. Swap the handler in `app/api/contact/route.ts` for Resend, Formspree, or your own backend. The UI already surfaces success and mailto fallback on error.
+`POST /api/contact` validates JSON (`name`, `email`, `message`) and logs it in development. Swap the handler in `app/api/contact/route.ts` for Resend, Formspree, or another backend when you want real delivery. If the request fails and `site.email` is set, the form offers that mailto link; otherwise it points at GitHub.
 
 ## Theme
 
-Dark is the default. The toggle uses `next-themes` with `enableSystem`, so OS preference is respected until the user picks a mode.
+Dark is the default. The toggle uses `next-themes` with `enableSystem`, so the OS preference applies until the visitor picks a mode.
 
-## Stack notes
+## Notes
 
-- **Animations** respect `prefers-reduced-motion`.
-- **Project pages** are statically generated from `content/projects.ts`.
-- **No CMS** — keep content in TypeScript until you outgrow it.
+- Animations respect `prefers-reduced-motion`.
+- Project pages are statically generated from `content/projects.ts`.
+- No CMS — keep content in TypeScript until it outgrows that.

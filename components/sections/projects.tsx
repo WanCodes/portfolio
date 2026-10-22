@@ -24,8 +24,8 @@ export function Projects() {
         <FadeIn>
           <SectionHeading
             eyebrow="Selected work"
-            title="Projects that show how I think about product UI."
-            description="Filter by type. Each card links to a longer write-up you can replace with real case studies."
+            title="Public repos and shipped interface work."
+            description="Filter by type. Each card opens a short write-up and the GitHub repository."
           />
         </FadeIn>
 

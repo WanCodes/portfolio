@@ -6,8 +6,7 @@ export function Footer() {
     <footer className="border-t border-border py-10">
       <Container className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm text-muted">
-          © {new Date().getFullYear()} {site.name}. Placeholder content — swap in{" "}
-          <code className="font-mono text-xs">content/</code>.
+          © {new Date().getFullYear()} {site.name}. {site.location}.
         </p>
         <ul className="flex flex-wrap gap-4 text-sm">
           {socials.map((link) => (

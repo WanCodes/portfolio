@@ -11,7 +11,7 @@ export function Skills() {
           <SectionHeading
             eyebrow="Skills"
             title="A front-end core, with enough stack to ship the whole feature."
-            description="Grouped by how I actually work — not fake proficiency bars."
+            description="Grouped by where the work happens."
           />
         </FadeIn>
         <div className="mt-12 grid gap-4 md:grid-cols-2">

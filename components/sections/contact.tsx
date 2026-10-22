@@ -38,7 +38,7 @@ export function Contact() {
           <SectionHeading
             eyebrow="Contact"
             title="Let’s talk about the next interface."
-            description={`${site.availability.detail}. The form posts to a local API route — wire it to Resend or Formspree when you deploy.`}
+            description={`${site.availability.detail}. Send a note here, or start from GitHub if you want the code first.`}
           />
           <ul className="mt-8 space-y-2 text-sm">
             {socials.map((link) => (
@@ -87,13 +87,28 @@ export function Contact() {
               <p className="min-h-5 text-sm text-muted" role="status" aria-live="polite">
                 {status === "sent" ? "Thanks — I’ll get back to you." : null}
                 {status === "error" ? (
-                  <>
-                    Something went wrong. Email me at{" "}
-                    <a className="underline" href={`mailto:${site.email}`}>
-                      {site.email}
-                    </a>
-                    .
-                  </>
+                  site.email ? (
+                    <>
+                      Something went wrong. Email me at{" "}
+                      <a className="underline" href={`mailto:${site.email}`}>
+                        {site.email}
+                      </a>
+                      .
+                    </>
+                  ) : (
+                    <>
+                      Something went wrong. Try again, or reach out on{" "}
+                      <a
+                        className="underline"
+                        href="https://github.com/WanCodes"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        GitHub
+                      </a>
+                      .
+                    </>
+                  )
                 ) : null}
               </p>
             </div>
