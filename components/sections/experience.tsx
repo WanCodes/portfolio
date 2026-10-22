@@ -10,8 +10,8 @@ export function Experience() {
         <FadeIn>
           <SectionHeading
             eyebrow="Experience"
-            title="Roles where the front-end had to carry the product."
-            description="Impact and architecture over task lists. Full write-ups live in content/experience.ts."
+            title="Senior roles, with the public work called out."
+            description="Selected from the public LinkedIn profile. Earlier positions stay there. Highlights below are work you can still open."
           />
         </FadeIn>
 

@@ -2,144 +2,137 @@ import type { Project } from "@/lib/types";
 
 export const projects: Project[] = [
   {
-    slug: "atlas-design-system",
-    title: "Atlas Design System",
-    year: "2024",
-    type: "Internal",
+    slug: "smart-adventurer",
+    title: "Smart Adventurer",
+    year: "2026",
+    type: "Open source",
     featured: true,
     summary:
-      "A multi-brand component library and token pipeline that became the shared UI language for three product teams.",
+      "Educational top-down adventure in TypeScript and Phaser. Maths questions open the road.",
     description:
-      "Atlas started as a set of duplicated button styles. It is now a versioned system: design tokens in JSON, React primitives, documentation, and visual regression coverage. Designers and engineers share the same names for color, type, and space.",
-    stack: ["React", "TypeScript", "Tailwind", "Storybook", "Chromatic"],
-    liveUrl: "https://example.com/atlas",
-    githubUrl: "https://github.com/jordanhale/atlas",
+      "Smart Adventurer is a browser game: a Phaser world (village, road, grove) where generated maths questions gate progress. The player sets an appearance, explores, and meets encounters such as the Moss Wolf and Grove Warden by answering questions. Progress — position, quests, level, gear — is a local save. Stack is TypeScript, Phaser, and Vite, with no backend.",
+    stack: ["TypeScript", "Phaser", "Vite", "HTML & CSS"],
+    githubUrl: "https://github.com/WanCodes/SmartAdventurer",
     challenges: [
       {
-        challenge: "Three products had drifted visually and technically.",
+        challenge: "A lesson and a game world both need to stay on screen.",
         solution:
-          "Extracted tokens first, then rebuilt primitives against them. Adoption was incremental — new work used Atlas; legacy screens migrated on touch.",
+          "The page splits a Phaser map pane from a lesson aside, and adds an on-screen pad so touch can move and talk without a keyboard.",
       },
       {
-        challenge: "Docs went stale the moment they were written in Notion.",
+        challenge: "A refresh should not wipe the adventure.",
         solution:
-          "Colocated Storybook docs with the components and generated a public-facing catalog from the same source.",
+          "One localStorage save holds position, quests, XP, gold, gear, and appearance. The title screen can continue that save or start a new character.",
       },
     ],
   },
   {
-    slug: "northstar-analytics",
-    title: "Northstar Analytics",
-    year: "2023",
-    type: "Product",
+    slug: "my-expo-games",
+    title: "Wan’s Game Arcade",
+    year: "2026",
+    type: "Open source",
     featured: true,
     summary:
-      "A high-density dashboard for operations teams: streaming charts, saved views, and keyboard-first navigation.",
+      "Expo and React Native arcade: a typed game list, Expo Router, and a playable Tic-Tac-Toe.",
     description:
-      "Northstar is where operators live all day. The work was less about adding charts and more about making dense data scannable: virtualized tables, predictable filter state in the URL, and layouts that do not collapse on a 13-inch laptop.",
-    stack: ["Next.js", "TypeScript", "TanStack Table", "D3", "Node.js"],
-    liveUrl: "https://example.com/northstar",
+      "my-expo-games is an Expo app (React Native, TypeScript, Expo Router) titled Wan’s Game Arcade. The home screen reads a Game registry and routes Play to a screen. Tic-Tac-Toe is the first game: local X vs O, with win and draw detection in a hook. The repository README is still the Expo starter; the app under src/ is the work, and the registry is there so further games can be added the same way.",
+    stack: ["Expo", "React Native", "TypeScript", "Expo Router", "React Navigation"],
+    githubUrl: "https://github.com/WanCodes/my-expo-games",
     challenges: [
       {
-        challenge: "10k+ row tables froze mid-scroll on typical laptops.",
+        challenge: "Each new game should not mean rewiring the app shell.",
         solution:
-          "Windowed rendering, deferred chart hydration, and server-driven sort/filter so the client never held the full dataset.",
-      },
-      {
-        challenge: "Power users refused the mouse for repetitive tasks.",
-        solution:
-          "Command palette, focus traps that make sense, and shortcuts documented in-product — not in a PDF.",
+          "A shared Game type and GAMES list drive the home screen. Play pushes that game’s route, and an entry can be marked coming soon without a broken link.",
       },
     ],
   },
   {
-    slug: "harbor-cms",
-    title: "Harbor CMS",
+    slug: "tetris-plan-abc",
+    title: "TetrisPlanABC",
     year: "2021",
-    type: "Platform",
+    type: "Open source",
     featured: true,
     summary:
-      "A headless CMS admin for editorial teams: drafts, scheduled publish, and a React preview that matches production.",
+      "React Native Tetris for iOS and Android: board, preview, controls, and piece rotation.",
     description:
-      "Editors needed to trust what they saw. Harbor’s admin previews the same components the public site uses, with draft data overlaid. The API is typed end-to-end so content models cannot silently drift from the front-end.",
-    stack: ["React", "Node.js", "PostgreSQL", "Prisma", "GraphQL"],
-    githubUrl: "https://github.com/jordanhale/harbor-cms",
+      "TetrisPlanABC is a React Native implementation of Tetris (React Native 0.63, TypeScript) for iOS and Android. Grid, cells, blocks, the next-piece preview, controls, and the start modal are separate components. Rotation rules live in shared helpers, with Jest on the React Native preset.",
+    stack: ["React Native", "TypeScript", "Jest"],
+    githubUrl: "https://github.com/WanCodes/TetrisPlanABC",
     challenges: [
       {
-        challenge: "Preview and production used different templates, so launch-day surprises were common.",
+        challenge: "Piece rotation and the visible board have to agree.",
         solution:
-          "Shared a component package between admin preview and the public Next.js site. Preview became a first-class route, not an iframe hack.",
-      },
-      {
-        challenge: "Schema changes broke unpublished drafts.",
-        solution:
-          "Content migrations with versioned shapes and a compatibility layer for in-flight drafts.",
+          "Rotation lives in shared helpers. The board screen renders the grid, preview, and controls from that state instead of hiding the rules inside one component.",
       },
     ],
   },
   {
-    slug: "pulse-checkout",
-    title: "Pulse Checkout",
-    year: "2020",
+    slug: "interactive-timeline",
+    title: "IG Interactive Timeline",
+    year: "2018",
     type: "Product",
     featured: true,
     summary:
-      "A conversion-focused checkout: progressive disclosure, resilient forms, and a 22% lift in completed orders.",
+      "Draggable company-history timeline built for IG Group’s public history page.",
     description:
-      "Pulse replaced a multi-page checkout with a single, well-paced flow. The interesting work was error handling, address lookup, and keeping the UI honest when the payment provider stalled.",
-    stack: ["Next.js", "TypeScript", "Stripe", "Zod", "Playwright"],
-    liveUrl: "https://example.com/pulse",
+      "A horizontal timeline for IG Group’s history page (iggroup.com/about-ig-group/our-history). Years from 1974 to 2017 are frames in JSON: text, quotes, images, and Brightcove video, with a year sidebar, arrow stepping, drag-to-scroll, and a lightbox. The original URL now redirects to IG’s redesigned About page. This repository is the source.",
+    stack: ["JavaScript", "HTML", "CSS", "GSAP", "jQuery"],
+    githubUrl: "https://github.com/WanCodes/Interactive-Timeline",
     challenges: [
       {
-        challenge: "Drop-off spiked on mobile when the keyboard covered primary actions.",
+        challenge: "Decades of history had to stay navigable as the viewport changed.",
         solution:
-          "Rebuilt the sticky summary, used visualViewport, and tested on real devices rather than DevTools alone.",
+          "Frames come from data.json. Dragdealer scrolls the strip, the sidebar jumps to a year, and how many frames are visible follows the width of the page.",
       },
       {
-        challenge: "Payment failures looked like generic 500s.",
+        challenge: "Video and articles had to open in place.",
         solution:
-          "Mapped provider errors to plain-language recovery steps and kept the cart intact across retries.",
-      },
-    ],
-  },
-  {
-    slug: "lumen-docs",
-    title: "Lumen Docs",
-    year: "2023",
-    type: "Open source",
-    featured: true,
-    summary:
-      "A documentation starter: MDX, typed navigation, search, and a11y-first theming — for teams that outgrew a wiki.",
-    description:
-      "Lumen is the kit I wished existed when spinning up internal docs. It ships with a sensible IA, dark/light themes, and a search index built at compile time. Opinionated enough to start fast, loose enough to re-skin.",
-    stack: ["Next.js", "MDX", "TypeScript", "FlexSearch", "Tailwind"],
-    liveUrl: "https://example.com/lumen",
-    githubUrl: "https://github.com/jordanhale/lumen-docs",
-    challenges: [
-      {
-        challenge: "Most doc starters looked fine and failed a keyboard audit.",
-        solution:
-          "Skip links, heading outline, and search results that are a proper listbox — not a div soup.",
+          "A video thumbnail opens a Brightcove overlay. Article links can open a full-screen image lightbox without leaving the timeline.",
       },
     ],
   },
   {
-    slug: "keel-api",
-    title: "Keel API Toolkit",
-    year: "2022",
+    slug: "interactive-map",
+    title: "IG Interactive Map",
+    year: "2018",
+    type: "Product",
+    featured: true,
+    summary:
+      "Responsive office map built for IG Group’s careers page, with desktop callouts and a mobile lightbox.",
+    description:
+      "An interactive office map for IG Group’s careers page (iggroup.com/careers). Each city is a point and label; choosing one reveals a description, joined by an animated line on large screens and a lightbox on small screens. Markers stay aligned as the map scales. The original URL now redirects to IG’s redesigned careers section. This repository is the source.",
+    stack: ["JavaScript", "HTML", "CSS", "GSAP", "jQuery"],
+    githubUrl: "https://github.com/WanCodes/Interactive-Map",
+    challenges: [
+      {
+        challenge: "Pins drift when a map image is only scaled up or down.",
+        solution:
+          "Points, labels, and callout lines are positioned against the scaled map so they stay attached to the city as the container width changes.",
+      },
+      {
+        challenge: "A side panel does not fit on a phone.",
+        solution:
+          "Small screens use a centered lightbox. Larger screens keep the connected panel and GSAP line animation.",
+      },
+    ],
+  },
+  {
+    slug: "multiple-file-uploader",
+    title: "Multiple File Uploader",
+    year: "2018",
     type: "Open source",
     featured: true,
     summary:
-      "Small Node utilities for typed REST handlers, request validation, and consistent error envelopes.",
+      "Small Node and PostgreSQL app: batch upload, list, and download files stored as BYTEA.",
     description:
-      "Keel is not a framework. It is a handful of helpers I kept copying between services: Zod-validated handlers, a standard error shape, and logging that does not drown the signal. Useful when you want Express or Next route handlers to stay thin.",
-    stack: ["Node.js", "TypeScript", "Zod", "Vitest"],
-    githubUrl: "https://github.com/jordanhale/keel",
+      "A Node sample that shows the full path past the UI. An Express app accepts up to 10 files (5 MB each), stores them in PostgreSQL as BYTEA, and lists them for download. The page warns and disables submit when the limits are exceeded; Multer enforces the same limits on the server. Treat it as a small full-stack sample.",
+    stack: ["Node.js", "Express", "PostgreSQL", "Multer"],
+    githubUrl: "https://github.com/WanCodes/multiplefileuploader",
     challenges: [
       {
-        challenge: "Every service invented its own error JSON.",
+        challenge: "The browser and the server needed the same idea of “too big”.",
         solution:
-          "One envelope, status mapping, and a client type so the front-end can switch on `code` instead of string matching messages.",
+          "The page warns and blocks submit over 5 MB or 10 files. POST /files uses Multer with the same caps, then writes the rows and returns them as JSON.",
       },
     ],
   },
